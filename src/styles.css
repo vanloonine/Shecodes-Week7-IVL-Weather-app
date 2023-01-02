@@ -101,5 +101,5 @@ button {
   display: block;
   margin: auto;
   position: relative;
-  left: 20px;
+  max-height: 80%;
 }

@@ -17,11 +17,14 @@ function displayTemp(response) {
   let nowWind = document.querySelector("#wind-now");
   nowWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
   let nowDate = document.querySelector("#date-now");
-  nowDate.innerHTML = formatDate(response.data.time * 1000);
+  nowDate.innerHTML = "Last updated: " + formatDate(response.data.time * 1000);
+  let nowIcon = document.querySelector("#icon-now");
+  nowIcon.setAttribute("src", response.data.condition.icon_url);
 }
 
 let apiKey = "b1ta5fo0b2c2fb14c08155a243d01b42";
-let apiURL = `https://api.shecodes.io/weather/v1/current?query=sydney&key=${apiKey}`;
+let city = "Rome";
+let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
 axios.get(apiURL).then(displayTemp);
 
