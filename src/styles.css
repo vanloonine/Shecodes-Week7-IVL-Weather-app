@@ -87,6 +87,7 @@ button {
   padding-top: 15px;
 }
 
+
 .forecast-icon {
   display: block;
   width: 95%;
@@ -102,4 +103,8 @@ button {
   margin: auto;
   position: relative;
   max-height: 80%;
+}
+
+.now-temp {
+  padding-top: 10px;
 }

@@ -23,7 +23,7 @@ function displayTemp(response) {
 }
 
 let apiKey = "b1ta5fo0b2c2fb14c08155a243d01b42";
-let city = "Rome";
+let city = "Lisbon";
 let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
 axios.get(apiURL).then(displayTemp);
@@ -52,3 +52,15 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+
+// search form functionality
+
+function search(event) {
+  event.preventDefault();
+  let citySearch = document.querySelector("#search-form");
+  console.log(citySearch);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
+console.log (form)
