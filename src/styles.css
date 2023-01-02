@@ -87,7 +87,6 @@ button {
   padding-top: 15px;
 }
 
-
 .forecast-icon {
   display: block;
   width: 95%;
@@ -107,4 +106,13 @@ button {
 
 .now-temp {
   padding-top: 10px;
+}
+
+.units .active {
+  color: #1f271b;
+  cursor: default;
+}
+
+.units .active:hover {
+  text-decoration: none;
 }
