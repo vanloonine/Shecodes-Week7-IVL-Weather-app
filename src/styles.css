@@ -116,3 +116,8 @@ button {
 .units .active:hover {
   text-decoration: none;
 }
+
+.forecast-temp-min {
+  color: #979dac;
+
+}

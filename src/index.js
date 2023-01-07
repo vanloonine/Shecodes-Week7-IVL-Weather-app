@@ -46,6 +46,27 @@ function displayTemp(response) {
   CelciusAPI = response.data.temperature.current;
 }
 
+
+function displayForecast(){
+  let ForecastElement = document.querySelector("#row-next-days");
+  let ForecastHTML = `<div class="col-1"></div>`;
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"]
+  days.forEach (function(day){
+    ForecastHTML = ForecastHTML + `
+  <div class="col-2 forecast">
+            <span class="forecast-day"> ${day}</span>
+            <img class="forecast-icon" src="images/cloudy.png" alt="" />
+            <span class="forecast-temp-max">10°</span> <span class="forecast-temp-divider"> | </span><span class="forecast-temp-min">5°</span>
+          </div>
+    `
+}
+  )
+ForecastElement.innerHTML = ForecastHTML; 
+}
+
+
+  
+
 function search(city) {
   let apiKey = "b1ta5fo0b2c2fb14c08155a243d01b42";
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -88,3 +109,4 @@ Celcius.addEventListener("click", convertFtoC);
 let CelciusAPI = null;
 
 search("Antwerp");
+displayForecast();
