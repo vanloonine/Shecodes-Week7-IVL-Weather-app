@@ -54,20 +54,41 @@ function search(city) {
   axios.get(apiURL).then(displayTemp);
 }
 
-function displayForecast(response) {
-  console.log(response);
+function formatForcastDay(timestamp){
+   let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
+  return days[day];
+}
+
+function displayForecast(response2) {
+
+  let forecast = response2.data.daily;
+
+  console.log(forecast);
+
   let ForecastElement = document.querySelector("#row-next-days");
-  let ForecastHTML = `<div class="col-1"></div>`;
-  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"]
-  days.forEach (function(day){
+
+  let ForecastHTML = ``;
+
+  forecast.forEach(function (forecast, index) {
+    if (index < 6) {
     ForecastHTML = ForecastHTML + `
   <div class="col-2 forecast">
-            <span class="forecast-day"> ${day}</span>
-            <img class="forecast-icon" src="images/cloudy.png" alt="" />
-            <span class="forecast-temp-max">10°</span> <span class="forecast-temp-divider"> | </span><span class="forecast-temp-min">5°</span>
+            <span class="forecast-day"> ${formatForcastDay(forecast.time)}</span>
+            <img class="forecast-icon" src="${forecast.condition.icon_url}" alt="" />
+            <span class="forecast-temp-max">${Math.round(forecast.temperature.maximum)}°</span> <span class="forecast-temp-divider"> | </span> <span class="forecast-temp-min">${Math.round(forecast.temperature.minimum)}°</span>
           </div>
     `
-}
+    }}
   )
 ForecastElement.innerHTML = ForecastHTML; 
 }
@@ -115,4 +136,4 @@ Celcius.addEventListener("click", convertFtoC);
 let CelciusAPI = null;
 
 search("Antwerp");
-displayForecast();
+

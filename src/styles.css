@@ -119,5 +119,10 @@ button {
 
 .forecast-temp-min {
   color: #979dac;
+  font-size: 13px;
 
+}
+
+.forecast-temp-max  {
+  font-size: 13px;
 }
