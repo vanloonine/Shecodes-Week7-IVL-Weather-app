@@ -107,33 +107,10 @@ function handleSubmit(event) {
   search(citySearch.value);
 }
 
-function convertCtoF(event) {
-  event.preventDefault;
-  let FnowTemp = document.querySelector("#temperature-now");
-  Celcius.classList.remove("active");
-  Farhrenheit.classList.add("active");
-  FnowTemp.innerHTML = Math.round((CelciusAPI * 9) / 5 + 32);
-}
-
-function convertFtoC(event) {
-  event.preventDefault;
-  let CnowTemp = document.querySelector("#temperature-now");
-  Farhrenheit.classList.remove("active");
-  Celcius.classList.add("active");
-  CnowTemp.innerHTML = Math.round(CelciusAPI);
-}
 
 let form = document.querySelector("#form");
 form.addEventListener("submit", handleSubmit);
 console.log(form);
-
-let Farhrenheit = document.querySelector("#Far");
-Farhrenheit.addEventListener("click", convertCtoF);
-
-let Celcius = document.querySelector("#celcius");
-Celcius.addEventListener("click", convertFtoC);
-
-let CelciusAPI = null;
 
 search("Antwerp");
 

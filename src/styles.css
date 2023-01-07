@@ -64,7 +64,7 @@ a {
 }
 
 button {
-  background-color: #dbcdc6;
+  background-color: #1f1a38;
   font-family: arial, sans-serif;
   color: #1f1a38;
   border: none;
@@ -73,14 +73,14 @@ button {
 }
 
 .open-source {
-  color: #7b506f;
+  color: #1f1a38;
   text-align: center;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #7b506f;
-  border-color: #7b506f;
+  background-color: #1f1a38;
+  border-color: #1f1a38;
 }
 
 .row {
