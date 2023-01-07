@@ -44,10 +44,18 @@ function displayTemp(response) {
   let nowIcon = document.querySelector("#icon-now");
   nowIcon.setAttribute("src", response.data.condition.icon_url);
   CelciusAPI = response.data.temperature.current;
+
+  getforecast(response.data.city)
 }
 
+function search(city) {
+  let apiKey = "b1ta5fo0b2c2fb14c08155a243d01b42";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiURL).then(displayTemp);
+}
 
-function displayForecast(){
+function displayForecast(response) {
+  console.log(response);
   let ForecastElement = document.querySelector("#row-next-days");
   let ForecastHTML = `<div class="col-1"></div>`;
   let days = ["Sat", "Sun", "Mon", "Tue", "Wed"]
@@ -65,12 +73,10 @@ ForecastElement.innerHTML = ForecastHTML;
 }
 
 
-  
-
-function search(city) {
+function getforecast (city){
   let apiKey = "b1ta5fo0b2c2fb14c08155a243d01b42";
-  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  axios.get(apiURL).then(displayTemp);
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 function handleSubmit(event) {
